@@ -13,9 +13,5 @@ public interface PrintSysInfo {
 
     String getSysInfo();
 
-    default String sysInfo() {
-        return getClass().getName() + "@" + Integer.toHexString(hashCode());
-    }
-
     int getLogHashCode();
 }
