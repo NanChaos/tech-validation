@@ -1,6 +1,7 @@
 package com.nanchaos.tech.util;
 
 import jdk.nashorn.internal.objects.annotations.Function;
+import org.slf4j.Logger;
 
 /**
  * Default Description
@@ -14,4 +15,6 @@ public interface PrintSysInfo {
     String getSysInfo();
 
     int getLogHashCode();
+
+    Logger getLogger();
 }

@@ -25,6 +25,12 @@ public class ValidDService implements PrintSysInfo {
 
     @Override
     public int getLogHashCode() {
+        log.info("aaa:{} ", "aa");
         return log.hashCode();
+    }
+
+    @Override
+    public Logger getLogger() {
+        return log;
     }
 }

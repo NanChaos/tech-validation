@@ -30,9 +30,11 @@ public class LogTest {
 
     @Test
     public void testLogInstance(){
+
         System.out.println(validAService.getLogHashCode());
         System.out.println(validBService.getLogHashCode());
         System.out.println(validCService.getLogHashCode());
         System.out.println(validDService.getLogHashCode());
+        System.out.println(validDService.getLogger().equals(validCService.getLogger()));
     }
 }

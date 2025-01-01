@@ -26,4 +26,9 @@ public class ValidCService implements PrintSysInfo {
     public int getLogHashCode() {
         return log.hashCode();
     }
+
+    @Override
+    public Logger getLogger() {
+        return log;
+    }
 }

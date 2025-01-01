@@ -2,6 +2,7 @@ package com.nanchaos.tech.log;
 
 import com.nanchaos.tech.util.PrintSysInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,5 +24,10 @@ public class ValidBService implements PrintSysInfo {
     @Override
     public int getLogHashCode() {
         return log.hashCode();
+    }
+
+    @Override
+    public Logger getLogger() {
+        return log;
     }
 }
