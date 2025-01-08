@@ -39,7 +39,7 @@ public class AppInterfaceLogAdvice {
     public Object around(ProceedingJoinPoint joinPoint) {
         log.info("AppInterfaceLogAdvice.around.start");
 
-        // traceLogId替换 略。。。
+        // traceLogId替换为网关trace，若非网关请求使用uuid生成trace，实现略。。。
         // 耗时监控
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -68,12 +68,12 @@ public class AppInterfaceLogAdvice {
             result = joinPoint.proceed();
             log.info("AppName AppInterfaceLogAdvice.around.finish, current is {}.{}", className, methodName);
         } catch (Throwable throwable) {
-            // 使用标准错误返回，略
+            // 使用标准错误返回，实现略
             if (useDefaultErrorResp) result = null;
             log.error("AppName AppInterfaceLogAdvice.around.error, cause:{}", ExceptionUtils.getStackTrace(throwable));
         }
         stopWatch.stop();
-        log.info("AppName AppInterfaceLogAdvice.around.end, current is {}.{}, time used:[{}ms],result is:{}", className, methodName, stopWatch.getTotalTimeMillis(), result);
+        log.info("AppName AppInterfaceLogAdvice.around.end, current is {}.{}, time used:[{}ms], is more than limit:{}, result is:{}", className, methodName, stopWatch.getTotalTimeMillis(), stopWatch.getTotalTimeMillis() > alarmThreshold, result);
         return result;
     }
 }
