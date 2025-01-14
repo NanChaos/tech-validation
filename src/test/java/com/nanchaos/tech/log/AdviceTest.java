@@ -23,7 +23,7 @@ public class AdviceTest {
 
     @Test
     public void testAop() {
-        Human human = new Human("55", 1, "1999");
+        Human human = new Human(null, "55", 1, null);
         outputFacade.humanAgeAdd(human);
     }
 }

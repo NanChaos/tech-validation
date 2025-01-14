@@ -2,3 +2,7 @@ spring:
   redis:
     host: redis.nanchaos.com
     port: 6379
+  elasticsearch:
+    uris: http://es.nanchaos.com:9200
+    username: elastic
+    password: Nanchaos@1
