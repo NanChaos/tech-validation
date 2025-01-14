@@ -1,0 +1,43 @@
+version: "3.1"
+# 服务配置
+services:
+  elasticsearch:
+    container_name: es01
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
+    restart: unless-stopped
+    environment:
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+      - "TZ=Asia/Shanghai"
+      - "discovery.type=single-node"
+      - "ELASTIC_PASSWORD=Nanchaos@1"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - /Users/nanchaos/Documents/Develop/docker_container/es_7_17_26/config:/usr/share/elasticsearch/config
+      - /Users/nanchaos/Documents/Develop/docker_container/es_7_17_26/data:/usr/share/elasticsearch/data
+      - /Users/nanchaos/Documents/Develop/docker_container/es_7_17_26/plugins:/usr/share/elasticsearch/plugins
+    networks:
+      - elastic
+  kibana:
+    container_name: kibana01
+    image: docker.elastic.co/kibana/kibana:7.17.26
+    restart: unless-stopped
+    environment:
+      - "TZ=Asia/Shanghai"
+      - "I18N_LOCALE=zh-CN"
+      - "ELASTICSEARCH_HOSTS=http://elasticsearch:9200"
+      - "ELASTICSEARCH_USERNAME=nanchaos"
+      - "ELASTICSEARCH_PASSWORD=Nanchaos@1"
+    ports:
+      - "5601:5601"
+      #volumes:
+      #- ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+# 网络配置
+networks:
+  elastic_net:
+    driver: bridge
