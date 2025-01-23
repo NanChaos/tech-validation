@@ -37,7 +37,7 @@ public class AppInterfaceLogAdvice {
 
     @Around("pointcutService()|| pointcutAppInterfaceLog()")
     public Object around(ProceedingJoinPoint joinPoint) {
-        log.info("AppInterfaceLogAdvice.around.start");
+        log.info("AppInterfaceLogAdvice.around.start, in:{}",this.getClass().getName());
 
         // traceLogId替换为网关trace，若非网关请求使用uuid生成trace，实现略。。。
         // 耗时监控

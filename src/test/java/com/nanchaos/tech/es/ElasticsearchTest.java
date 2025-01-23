@@ -4,8 +4,6 @@ import com.nanchaos.tech.TechValidationApplication;
 import com.nanchaos.tech.entity.Human;
 import com.nanchaos.tech.service.es.HumanEsService;
 import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.GetIndexRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
