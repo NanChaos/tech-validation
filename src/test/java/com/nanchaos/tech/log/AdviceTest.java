@@ -1,7 +1,6 @@
 package com.nanchaos.tech.log;
 
 import com.nanchaos.tech.TechValidationApplication;
-import com.nanchaos.tech.api.OutputFacade;
 import com.nanchaos.tech.entity.Human;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

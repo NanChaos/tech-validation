@@ -58,7 +58,7 @@ public class AppInterfaceLogAdvice {
                 isPrintAsJson = annotation.printJSON();
                 useDefaultErrorResp = annotation.useDefaultErrorResp();
             }
-            className = joinPoint.getTarget().getClass().getName();
+            className = joinPoint.getTarget().getClass().getSimpleName();
             methodName = methodSignature.getName();
         }
 
